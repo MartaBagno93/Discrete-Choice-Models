@@ -10,7 +10,7 @@
 # Clear the workspace
 rm(list = ls())
 
-# Load the libararies
+# Load the libraries
 library("rstan")
 library("dplyr") 
 library("rstanarm") 
