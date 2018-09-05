@@ -120,7 +120,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Creation_data.R</h1>
 <h4 class="author"><em>User</em></h4>
-<h4 class="date"><em>Wed Sep 05 19:55:45 2018</em></h4>
+<h4 class="date"><em>Wed Sep 05 20:41:10 2018</em></h4>
 
 </div>
 
@@ -131,7 +131,7 @@ $(document).ready(function () {
 # Clear the workspace
 rm(list = ls())
 
-# Load the libarary
+# Load the library
 library(&quot;dplyr&quot;) </code></pre>
 <pre><code>## 
 ## Attaching package: 'dplyr'</code></pre>
@@ -280,32 +280,36 @@ class(dd)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>dim(dd)</code></pre>
 <pre><code>## [1] 11616    15</code></pre>
-<pre class="r"><code>colnames(dd)[c(8:15)]  &lt;- c(&quot;X1&quot;,&quot;X2&quot;, &quot;X3&quot;, &quot;X4&quot;,&quot;X5&quot;, &quot;X6&quot;, &quot;X7&quot;,&quot;X8&quot;)
-colnames(dd)</code></pre>
+<pre class="r"><code>colnames(dd)</code></pre>
 <pre><code>##  [1] &quot;choice_c&quot; &quot;index&quot;    &quot;choice&quot;   &quot;altern&quot;   &quot;X1&quot;       &quot;X2&quot;      
-##  [7] &quot;X3&quot;       &quot;X1&quot;       &quot;X2&quot;       &quot;X3&quot;       &quot;X4&quot;       &quot;X5&quot;      
+##  [7] &quot;X3&quot;       &quot;X4&quot;       &quot;X5&quot;       &quot;X6&quot;       &quot;X7&quot;       &quot;X8&quot;      
+## [13] &quot;X9&quot;       &quot;X10&quot;      &quot;X11&quot;</code></pre>
+<pre class="r"><code>colnames(dd)[c(5:15)]  &lt;- c(&quot;alt1&quot;,&quot;alt2&quot;,&quot;alt3&quot;, &quot;X1&quot;,&quot;X2&quot;, &quot;X3&quot;, &quot;X4&quot;,&quot;X5&quot;, &quot;X6&quot;, &quot;X7&quot;,&quot;X8&quot;)
+colnames(dd)</code></pre>
+<pre><code>##  [1] &quot;choice_c&quot; &quot;index&quot;    &quot;choice&quot;   &quot;altern&quot;   &quot;alt1&quot;     &quot;alt2&quot;    
+##  [7] &quot;alt3&quot;     &quot;X1&quot;       &quot;X2&quot;       &quot;X3&quot;       &quot;X4&quot;       &quot;X5&quot;      
 ## [13] &quot;X6&quot;       &quot;X7&quot;       &quot;X8&quot;</code></pre>
 <pre class="r"><code>head(dd)</code></pre>
-<pre><code>##   choice_c index choice altern X1 X2 X3         X1         X2         X3
-## 1        1     1      1      1  1  0  0 -0.5330522 -0.7453095  0.9818420
-## 2        1     1      0      2  0  1  0  0.3905851  1.0165677 -0.4397248
-## 3        1     1      0      3  0  0  1  1.4129788 -1.9034114  1.3483188
-## 4        1     1      0      4  0  0  0  0.0000000  0.0000000  0.0000000
-## 5        2     1      0      1  1  0  0 -0.7419894  0.6710055  0.5992480
-## 6        2     1      0      2  0  1  0 -0.1503043 -0.0394594 -0.1072556
-##           X4         X5         X6         X7         X8
-## 1 -2.6123846 -0.2279878 -0.8287386 -1.3277475  0.5639254
-## 2  0.2784110 -0.5506325  0.6239495 -0.8890217  0.6968982
-## 3 -0.8156199 -0.5968356  1.4301529  2.3239020  0.9293180
-## 4  0.0000000  0.0000000  0.0000000  0.0000000  0.0000000
-## 5 -0.4485832 -1.2449987 -0.4244767  0.4829135 -2.1223140
-## 6 -0.2374587 -1.8568552  0.3574395 -0.1088589  1.3417334</code></pre>
+<pre><code>##   choice_c index choice altern alt1 alt2 alt3          X1          X2
+## 1        1     1      0      1    1    0    0 -0.22349080 -0.45276828
+## 2        1     1      1      2    0    1    0 -0.50938662  0.16201973
+## 3        1     1      0      3    0    0    1 -0.03400632 -0.04062696
+## 4        1     1      0      4    0    0    0  0.00000000  0.00000000
+## 5        2     1      0      1    1    0    0 -0.05706762 -0.31854097
+## 6        2     1      0      2    0    1    0 -0.14364724 -0.77755181
+##            X3          X4           X5         X6         X7         X8
+## 1  0.85036499 -0.36064395 -0.495269401  0.9495770  0.7701683 -0.4590723
+## 2  0.96684166 -0.31349227 -0.226861100  2.5377958 -0.1425562  0.9053717
+## 3 -0.53641645 -0.54248060  0.002160061  0.9834620 -0.1435568 -0.7135086
+## 4  0.00000000  0.00000000  0.000000000  0.0000000  0.0000000  0.0000000
+## 5 -1.10841449 -0.06173077 -1.860955683 -0.5855176 -1.2869905  0.1243228
+## 6 -0.05953439  1.31443073 -0.470606745  0.7245788 -1.0476604 -0.6382595</code></pre>
 <pre class="r"><code># create a useful y variable for the three models
 y= dd[dd$choice== 1, &quot;altern&quot;]   
 table(y)</code></pre>
 <pre><code>## y
 ##   1   2   3   4 
-## 696 747 730 731</code></pre>
+## 713 740 737 714</code></pre>
 <pre class="r"><code># extract the respondent index for the alternative choice
 id = dd[dd$choice == 1, &quot;index&quot;] 
 table(id)</code></pre>

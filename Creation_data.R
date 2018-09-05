@@ -4,7 +4,7 @@
 # Clear the workspace
 rm(list = ls())
 
-# Load the libarary
+# Load the library
 library("dplyr") 
 
 # 6 choice sets for 484 individuals, with 4 choice options each. The fourth alternative is "none of these".
@@ -82,8 +82,9 @@ X[i*S, ] = 0
 dd <- data.frame(choice_c, index, choice,altern, X )
 class(dd)
 dim(dd)
+colnames(dd)
 
-colnames(dd)[c(8:15)]  <- c("X1","X2", "X3", "X4","X5", "X6", "X7","X8")
+colnames(dd)[c(5:15)]  <- c("alt1","alt2","alt3", "X1","X2", "X3", "X4","X5", "X6", "X7","X8")
 colnames(dd)
 head(dd)
 
