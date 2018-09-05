@@ -10,7 +10,7 @@
 # Clear the workspace
 rm(list = ls())
 
-# Load the libararies
+# Load the libraries
 library("rstan")
 library("dplyr") 
 library("rstanarm") 
@@ -116,7 +116,7 @@ G=3
 # To extract the matrix of classification probabilies, required by method Stephens
 p=rstan::extract(lc_fit,pars="class_prob")$class_prob
 dim(p)
-# p= m × n × K array 
+# p= m ? n ? K array 
 
 # convert MCMC output into a m x k x J array
 mcmc.params <- rstan::extract(lc_fit,pars=c("prob_class", "beta"))
@@ -136,7 +136,7 @@ stephens = stephens(p = p)
 # To reorder the MCMC output according the method of stephens
 reordered= permute.mcmc(mcmc.pars,stephens$permutations)[[1]]
 dim(reordered)
-# reordered = m × K × J, array of reordered MCMC parameters.
+# reordered = m ? K ? J, array of reordered MCMC parameters.
 
 # Now I can computes means, standard deviations, quantiles, 
 # Monte Carlo standard errors, split Rhats, and effective sample sizes with R function monitor()
