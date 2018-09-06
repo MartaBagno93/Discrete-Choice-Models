@@ -1,4 +1,4 @@
-# Script of Multinomial Mixed Logit model in Stan. 
+# Script of Mixed Logit model in Stan. 
 # The utility function is U_{njt}=x1_{njt}*\beta_{n}'+x2_{njt}*\beta+ \epsilon_{njt}, where n is the subject, j the alternative and t the choice set.
 # X1 matrix of predictors for random (beta_{n}) while X2 is a matrix of predictors for fixed parameters 
 # Instead of adopt a multivariate normal distribution for the vector \beta_{n} I use the non-centered parameterization:
